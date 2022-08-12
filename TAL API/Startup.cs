@@ -36,15 +36,19 @@ namespace TAL_API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = Constants.TAL_API_Swagger_Title, Version = Constants.TAL_API_Swagger_Version });
+                c.SwaggerDoc(Constants.TAL_API_Swagger_Version, new OpenApiInfo { Title = Constants.TAL_API_Swagger_Title, Version = Constants.TAL_API_Swagger_Version });
             });
-
-           
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+           app.UseCors(options =>
+           options.WithOrigins(Configuration.GetSection(Constants.TAL_API_Configuration_MySettings).GetSection(Constants.TAL_API_Configuration_corsurl).Value)
+          .AllowAnyMethod()
+          .AllowAnyHeader());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

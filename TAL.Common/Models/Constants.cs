@@ -8,6 +8,9 @@
         public const string TAL_API_nlog = "/nlog.config";
         public const string TAL_API_SqlConnection = "sqlConnection";
         public const string TAL_API_TAL_API_Assembly = "TAL API";
+        public const string TAL_API_Cors_URL = "http://localhost:4200";
+        public const string TAL_API_Configuration_MySettings = "MySettings";
+        public const string TAL_API_Configuration_corsurl = "corsurl";
 
         public const string TAL_API_Swagger_Title = "TAL_API";
         public const string TAL_API_Swagger_Endpoint = "/swagger/v1/swagger.json";
